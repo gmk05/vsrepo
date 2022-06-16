@@ -1,0 +1,26 @@
+import "./styles.css";
+import React ,{useReducer}from "react";
+const initialState={message:"hi"};
+const Reducer=(state,action)=>{
+  switch(action.type){
+    case "yell":
+    return{
+      message:"Hey"
+    };
+case "whisper":
+return{
+  message:"execuse me"
+  };
+  default:
+    return state
+  }
+}
+export default function App() {
+ const [state,dispatch]=useReducer(Reducer,initialState);
+  return (
+    <>
+     <p>message:{state.message}</p>
+    <button onClick={()=>dispatch({type:"yell"})}>yellow</button>
+    <button onClick={()=>dispatch({type:"whisper"})}>whisper</button>
+    </>);
+}
